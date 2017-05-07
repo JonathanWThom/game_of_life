@@ -4,7 +4,7 @@ class Cell
   def initialize(x, y)
     @x = x
     @y = y
-    @living = true
+    @living = false
   end
 
   def less_than_two_neighbors(cells)

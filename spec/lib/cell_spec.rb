@@ -28,14 +28,9 @@ describe Cell do
 
   describe "#less_than_two_neighbors" do
     it "Any live cell with fewer than two live neighbours dies, as if caused by underpopulation." do
-      cell1 = Cell.new(1, 1)
-      cell2 = Cell.new(3, 3)
-      cell3 = Cell.new(4, 4)
-      cell4 = Cell.new(5, 5)
-      cell5 = Cell.new(10, 10)
-      game = Game.new(cell1, cell2, cell3, cell4, cell5)
-      game.next_turn
-      expect(cell1.living).to eq(false)
+      game = Game.new(1, 1, [0])
+      game.start
+      expect(game.cells[0].living).to eq(false)
     end
   end
 
@@ -45,7 +40,7 @@ describe Cell do
     cell3 = Cell.new(2, 1)
     cell4 = Cell.new(10, 10)
     cell5 = Cell.new(11, 11)
-    game = Game.new(cell1, cell2, cell3, cell4, cell5)
+    game = Game.new(11, 11, cell1, cell2, cell3, cell4, cell5)
     game.next_turn
     expect(cell1.living).to eq(true)
   end
@@ -57,7 +52,7 @@ describe Cell do
       cell3 = Cell.new(3, 2)
       cell4 = Cell.new(3, 4)
       cell5 = Cell.new(4, 3)
-      game = Game.new(cell1, cell2, cell3, cell4, cell5)
+      game = Game.new(5, 5, cell1, cell2, cell3, cell4, cell5)
       game.next_turn
       expect(cell1.living).to eq(false)
     end
@@ -71,7 +66,7 @@ describe Cell do
       cell4 = Cell.new(3, 4)
       cell5 = Cell.new(10, 10)
       cell1.living = false
-      game = Game.new(cell1, cell2, cell3, cell4, cell5)
+      game = Game.new(10, 10, cell1, cell2, cell3, cell4, cell5)
       game.next_turn
       expect(cell1.living).to eq(true)
     end
