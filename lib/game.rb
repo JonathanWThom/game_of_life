@@ -12,9 +12,12 @@ class Game
         cell.living = false
       elsif cell.three_or_more_neighbors(@cells)
         cell.living = false
+      elsif (cell.living == false) && (cell.exactly_three_neighbors(@cells))
+        binding.pry
+        cell.living = true
       end
     end
   end
 
-  
+
 end

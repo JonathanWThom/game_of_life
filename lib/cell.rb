@@ -17,8 +17,7 @@ class Cell
         end
       end
     end
-    ## it will be colocated/a "neighbor" to itself
-    neighbors.count < 3
+    neighbors.count < 2
   end
 
   def three_or_more_neighbors(cells)
@@ -30,9 +29,23 @@ class Cell
         end
       end
     end
-    ## it will be colocated/a "neighbor" to itself
-    neighbors.count > 4
+    neighbors.count > 3
   end
+
+  def exactly_three_neighbors(cells)
+    neighbors = []
+    cells.each do |cell|
+      if cell.living
+        if ((cell.x - self.x).abs < 2) || ((cell.y - self.y).abs < 2)
+          neighbors.push(cell)
+          binding.pry
+        end
+      end
+    end
+    neighbors.count == 3
+  end
+
+
 end
 
 
