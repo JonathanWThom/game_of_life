@@ -11,12 +11,30 @@ class Cell
   def less_than_two_neighbors(cells)
     neighbors = []
     cells.each do |cell|
-      if ((cell.x - self.x).abs < 2) || ((cell.y - self.y).abs < 2)
-        neighbors.push(cell)
+      if cell.living
+        if ((cell.x - self.x).abs < 2) || ((cell.y - self.y).abs < 2)
+          neighbors.push(cell)
+        end
       end
     end
     ## it will be colocated/a "neighbor" to itself
     neighbors.count < 3
   end
 
+  def three_or_more_neighbors(cells)
+    neighbors = []
+    cells.each do |cell|
+      if cell.living
+        if ((cell.x - self.x).abs < 2) || ((cell.y - self.y).abs < 2)
+          neighbors.push(cell)
+        end
+      end
+    end
+    ## it will be colocated/a "neighbor" to itself
+    neighbors.count > 4
+  end
+
 end
+
+
+## cells must be living to do things

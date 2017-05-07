@@ -10,7 +10,11 @@ class Game
     @cells.each do |cell|
       if cell.less_than_two_neighbors(@cells)
         cell.living = false
+      elsif cell.three_or_more_neighbors(@cells)
+        cell.living = false
       end
     end
   end
+
+  
 end
