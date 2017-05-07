@@ -1,10 +1,7 @@
-# pdx.rb Monthly Exercise (Ruby)
+# Conway's Game of Life
 
-## Initializing the Exercise
+Inspired by the PDX Ruby Brigade
 
-To get things started, get ruby installed on your machine however you see fit.
-Once ruby is installed, running `. bin/setup` will get you set up with bundler
-and rspec. (Note: `.` as a command will run files that don't have executable permissions)
+Here are the [rules of game.](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
-After that you should be able to run tests via `bundle exec rspec` and you're
-good to go!
+This game is currently just passing specs - I will give it a working interface at some point.

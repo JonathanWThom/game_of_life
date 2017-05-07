@@ -7,12 +7,11 @@ class Cell
     @living = true
   end
 
-  ## test
   def less_than_two_neighbors(cells)
     neighbors = []
     cells.each do |cell|
       if cell.living
-        if ((cell.x_y_total - self.x_y_total).abs == 1) && ((cell.x == self.x) || (cell.y == self.y))
+        if self.neighbors(cell)
           neighbors.push(cell)
         end
       end
@@ -24,7 +23,7 @@ class Cell
     neighbors = []
     cells.each do |cell|
       if cell.living
-        if ((cell.x_y_total - self.x_y_total).abs == 1) && ((cell.x == self.x) || (cell.y == self.y))
+        if self.neighbors(cell)
           neighbors.push(cell)
         end
       end
@@ -36,9 +35,8 @@ class Cell
     neighbors = []
     cells.each do |cell|
       if cell.living
-        if ((cell.x_y_total - self.x_y_total).abs == 1) && ((cell.x == self.x) || (cell.y == self.y))
+        if self.neighbors(cell)
           neighbors.push(cell)
-          binding.pry
         end
       end
     end
@@ -47,6 +45,10 @@ class Cell
 
   def x_y_total
     x + y
+  end
+
+  def neighbors(cell)
+    ((cell.x_y_total - self.x_y_total).abs == 1) && ((cell.x == self.x) || (cell.y == self.y))
   end
 
 end
