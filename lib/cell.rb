@@ -19,7 +19,7 @@ class Cell
     neighbors.count < 2
   end
 
-  def three_or_more_neighbors(cells)
+  def more_than_three_neighbors(cells)
     neighbors = []
     cells.each do |cell|
       if cell.living

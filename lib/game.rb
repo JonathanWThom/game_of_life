@@ -10,7 +10,7 @@ class Game
     @cells.each do |cell|
       if cell.less_than_two_neighbors(@cells)
         cell.living = false
-      elsif cell.three_or_more_neighbors(@cells)
+      elsif cell.more_than_three_neighbors(@cells)
         cell.living = false
       elsif (cell.living == false) && (cell.exactly_three_neighbors(@cells))
         cell.living = true

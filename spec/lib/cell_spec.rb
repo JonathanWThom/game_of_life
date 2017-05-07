@@ -3,6 +3,29 @@ require "game"
 require "cell"
 
 describe Cell do
+
+  describe "#neighors" do
+    it "will return true if one cell is a neighbor of another" do
+      cells = []
+      (1..3).each do |x|
+        (1..3).each do |y|
+          cell = Cell.new(x, y)
+          cells.push(cell)
+        end
+      end
+
+      neighbors = []
+      cells.each do |cell|
+        middle_cell = Cell.new(2, 2)
+        if middle_cell.neighbors(cell)
+          neighbors.push(cell)
+        end
+      end
+
+      expect(neighbors.count).to eq(4)
+    end
+  end
+
   describe "#less_than_two_neighbors" do
     it "Any live cell with fewer than two live neighbours dies, as if caused by underpopulation." do
       cell1 = Cell.new(1, 1)
@@ -27,7 +50,7 @@ describe Cell do
     expect(cell1.living).to eq(true)
   end
 
-  describe "#three_or_more_neighbors" do
+  describe "#more_than_three_neighbors" do
     it "Any live cell with more than three live neighbours dies, as if by overpopulation." do
       cell1 = Cell.new(3, 3)
       cell2 = Cell.new(2, 3)
