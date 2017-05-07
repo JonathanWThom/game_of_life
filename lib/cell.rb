@@ -12,7 +12,7 @@ class Cell
     neighbors = []
     cells.each do |cell|
       if cell.living
-        if ((cell.x - self.x).abs < 2) || ((cell.y - self.y).abs < 2)
+        if (cell.x_y_total - self.x_y_total).abs == 1
           neighbors.push(cell)
         end
       end
@@ -24,7 +24,7 @@ class Cell
     neighbors = []
     cells.each do |cell|
       if cell.living
-        if ((cell.x - self.x).abs < 2) || ((cell.y - self.y).abs < 2)
+        if (cell.x_y_total - self.x_y_total).abs == 1
           neighbors.push(cell)
         end
       end
@@ -36,7 +36,7 @@ class Cell
     neighbors = []
     cells.each do |cell|
       if cell.living
-        if ((cell.x - self.x).abs < 2) || ((cell.y - self.y).abs < 2)
+        if (cell.x_y_total - self.x_y_total).abs == 1
           neighbors.push(cell)
           binding.pry
         end
@@ -45,6 +45,9 @@ class Cell
     neighbors.count == 3
   end
 
+  def x_y_total
+    x + y
+  end
 
 end
 
