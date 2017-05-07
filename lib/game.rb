@@ -2,8 +2,8 @@ class Game
   attr_accessor :cells
 
   ## write so you can push as many as you want in
-  def initialize(cell1, cell2, cell3)
-    @cells = [cell1, cell2, cell3]
+  def initialize(cell1, cell2, cell3, cell4, cell5)
+    @cells = [cell1, cell2, cell3, cell4, cell5]
   end
 
   def next_turn
