@@ -42,14 +42,9 @@ describe Cell do
 
   describe "#more_than_three_neighbors" do
     it "Any live cell with more than three live neighbours dies, as if by overpopulation." do
-      cell1 = Cell.new(3, 3)
-      cell2 = Cell.new(2, 3)
-      cell3 = Cell.new(3, 2)
-      cell4 = Cell.new(3, 4)
-      cell5 = Cell.new(4, 3)
-      game = Game.new(5, 5, cell1, cell2, cell3, cell4, cell5)
+      game = Game.new(3, 3, [1, 3, 4, 5, 7])
       game.next_turn
-      expect(cell1.living).to eq(false)
+      expect(game.cells[4].living).to eq(false)
     end
   end
 

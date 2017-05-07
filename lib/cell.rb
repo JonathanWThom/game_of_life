@@ -1,10 +1,11 @@
 class Cell
-  attr_accessor :x, :y, :living
+  attr_accessor :x, :y, :living, :future_living_state
 
   def initialize(x, y)
     @x = x
     @y = y
     @living = false
+    @future_living_state = false
   end
 
   def less_than_two_neighbors(cells)
