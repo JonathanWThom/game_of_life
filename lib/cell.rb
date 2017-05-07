@@ -33,7 +33,6 @@ class Cell
     ## it will be colocated/a "neighbor" to itself
     neighbors.count > 4
   end
-
 end
 
 

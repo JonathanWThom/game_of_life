@@ -37,6 +37,14 @@ describe Cell do
   end
 
   it "Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction." do
-
+    cell1 = Cell.new(3, 3)
+    cell2 = Cell.new(2, 3)
+    cell3 = Cell.new(3, 2)
+    cell4 = Cell.new(3, 4)
+    cell5 = Cell.new(10, 10)
+    cell1.living = false
+    game = Game.new(cell1, cell2, cell3, cell4, cell5)
+    game.next_turn
+    expect(cell1.living).to eq(true)
   end
 end
