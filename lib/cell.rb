@@ -12,7 +12,7 @@ class Cell
     neighbors = []
     cells.each do |cell|
       if cell.living
-        if (cell.x_y_total - self.x_y_total).abs == 1
+        if ((cell.x_y_total - self.x_y_total).abs == 1) && ((cell.x == self.x) || (cell.y == self.y))
           neighbors.push(cell)
         end
       end
@@ -24,7 +24,7 @@ class Cell
     neighbors = []
     cells.each do |cell|
       if cell.living
-        if (cell.x_y_total - self.x_y_total).abs == 1
+        if ((cell.x_y_total - self.x_y_total).abs == 1) && ((cell.x == self.x) || (cell.y == self.y))
           neighbors.push(cell)
         end
       end
@@ -36,7 +36,7 @@ class Cell
     neighbors = []
     cells.each do |cell|
       if cell.living
-        if (cell.x_y_total - self.x_y_total).abs == 1
+        if ((cell.x_y_total - self.x_y_total).abs == 1) && ((cell.x == self.x) || (cell.y == self.y))
           neighbors.push(cell)
           binding.pry
         end
@@ -50,6 +50,3 @@ class Cell
   end
 
 end
-
-
-## cells must be living to do things
