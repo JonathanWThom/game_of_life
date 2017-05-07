@@ -1,4 +1,5 @@
 require "./lib/cell"
+require "./lib/string"
 require "pry"
 
 class Game
@@ -62,7 +63,6 @@ puts "Enter grid height, then hit enter: "
 height = gets.chomp
 puts "Enter the index of which cells to start as living, separated by commas: "
 living_cells = gets.chomp
-binding.pry
-living_cells = living_cells.gsub(" ", "").split(",").map { |x| x.to_i }
+living_cells = living_cells.convert_to_array
 game = Game.new(width.to_i, height.to_i, living_cells)
 game.start
