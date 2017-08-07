@@ -4,12 +4,16 @@ require "pry"
 
 class Game
   attr_accessor :cells
+  attr_reader :grid_width, :grid_height
 
   def initialize(grid_width, grid_height, living_cells)
     @cells = []
     @living_cells = living_cells
-    (1..grid_width).each do |x|
-      (1..grid_height).each do |y|
+    @grid_width = grid_width
+    @grid_height = grid_height
+
+    (1..@grid_width).each do |x|
+      (1..@grid_height).each do |y|
         cell = Cell.new(x, y)
         @cells.push(cell)
       end
@@ -43,7 +47,8 @@ class Game
     @i = 1
     while @cells.any? { |cell| cell.living }
       puts "Generation #{@i}\n\n"
-      @cells.map { |cell| puts "#{cell.x}, #{cell.y} = #{cell.living}"}
+      # @cells.map { |cell| puts "#{cell.x}, #{cell.y} = #{cell.living}"}
+      show_grid
       puts "\n\n"
       self.next_turn
       @i += 1
@@ -52,6 +57,17 @@ class Game
 
     puts "Game Over \n\n"
     @cells.map { |cell| puts "#{cell.x}, #{cell.y} = #{cell.living}"}
+  end
+
+  def show_grid
+    @cells.each_with_index do |cell, i|
+      if i % @grid_width == 0
+        puts "\n"
+      end
+
+      print "#{cell.living} "
+    end
+
   end
 
 end
