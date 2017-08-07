@@ -1,5 +1,6 @@
 require "./lib/cell"
 require "./lib/string"
+require "./lib/grid"
 require "pry"
 
 class Game
@@ -47,12 +48,11 @@ class Game
     @i = 1
     while @cells.any? { |cell| cell.living }
       puts "Generation #{@i}\n\n"
-      # @cells.map { |cell| puts "#{cell.x}, #{cell.y} = #{cell.living}"}
       show_grid
       puts "\n\n"
       self.next_turn
       @i += 1
-      sleep 3
+      sleep 1
     end
 
     puts "Game Over \n\n"
@@ -64,10 +64,8 @@ class Game
       if i % @grid_width == 0
         puts "\n"
       end
-
-      print "#{cell.living} "
+      print "#{cell.display}"
     end
-
   end
 
 end
@@ -76,6 +74,7 @@ puts "Enter grid width, then hit enter: "
 width = gets.chomp
 puts "Enter grid height, then hit enter: "
 height = gets.chomp
+Grid.new(width, height).show_empty_grid
 puts "Enter the index of which cells to start as living, separated by commas: "
 living_cells = gets.chomp
 living_cells = living_cells.convert_to_array

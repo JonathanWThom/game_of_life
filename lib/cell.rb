@@ -49,4 +49,12 @@ class Cell
   def exactly_three_neighbors(cells)
     living_neighbors_count(cells) == 3
   end
+
+  def display
+    if living
+      "[0]"
+    else
+      "[X]"
+    end
+  end
 end
