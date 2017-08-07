@@ -31,7 +31,6 @@ class Game
       else
         cell.future_living_state = cell.living
       end
-      ## Doesn't quit work, as all should change at the same time, not one at a time.
     end
 
     @cells.each do |cell|
@@ -57,12 +56,12 @@ class Game
 
 end
 
-puts "Enter grid width, then hit enter: "
-width = gets.chomp
-puts "Enter grid height, then hit enter: "
-height = gets.chomp
-puts "Enter the index of which cells to start as living, separated by commas: "
-living_cells = gets.chomp
-living_cells = living_cells.convert_to_array
-game = Game.new(width.to_i, height.to_i, living_cells)
-game.start
+# puts "Enter grid width, then hit enter: "
+# width = gets.chomp
+# puts "Enter grid height, then hit enter: "
+# height = gets.chomp
+# puts "Enter the index of which cells to start as living, separated by commas: "
+# living_cells = gets.chomp
+# living_cells = living_cells.convert_to_array
+# game = Game.new(width.to_i, height.to_i, living_cells)
+# game.start
