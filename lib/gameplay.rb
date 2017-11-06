@@ -51,14 +51,15 @@ class Gameplay
   def bad_characters?(living_cell_numbers)
   end
 
+  def duplicates?(living_cell_numbers)
+  end
+
   def invalid_numbers?(living_cell_numbers)
   end
 
   def nil_value_entered?(living_cell_numbers)
   end
 
-  def duplicates?(living_cell_numbers)
-  end
 end
 
 Gameplay.new.play
