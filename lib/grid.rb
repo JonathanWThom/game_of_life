@@ -5,19 +5,43 @@ class Grid
   def initialize(width, height)
     @width = width.to_i
     @height = height.to_i
+    @number = @width * @height
   end
 
-  attr_reader :width, :height
+  attr_reader :width, :height, :number
 
   def show_empty_grid
-    number = @width * @height
     number.times do |i|
-      if i % @width == 0
+      if i % width == 0
         puts "\n"
       end
-      print "[#{i}]"
+      print_cell(i)
     end
     puts "\n\n"
+  end
+
+  def print_cell(i)
+    spaces = get_spaces(i)
+    print "[#{i}]"
+    spaces.times do
+      print " "
+    end
+  end
+
+  def get_spaces(i)
+    if number > 99
+      if i <= 9
+        4
+      elsif i <= 99
+        3
+      else
+        2
+      end
+    elsif number > 9 && i <= 9
+      2
+    else
+      1
+    end
   end
 
   def display_turns(cells, game)

@@ -50,15 +50,3 @@ class Game
   end
 
 end
-
-puts "Enter grid width, then hit enter: "
-width = gets.chomp
-puts "Enter grid height, then hit enter: "
-height = gets.chomp
-grid = Grid.new(width, height)
-grid.show_empty_grid
-puts "Enter the index of which cells to start as living, separated by commas: "
-living_cells = gets.chomp
-living_cells = living_cells.convert_to_array
-game = Game.new(width.to_i, height.to_i, living_cells, grid)
-game.start
