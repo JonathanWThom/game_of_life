@@ -7,4 +7,4 @@ Here are the [rules of game.](https://en.wikipedia.org/wiki/Conway%27s_Game_of_L
 
 ## Set Up
 
-There is a very simple command line interface. Just clone it, then navigate to the directory and run ```ruby lib/game.rb``` to try it.
+There is a very simple command line interface. Just clone it, then navigate to the directory and run ```ruby lib/gameplay.rb``` to try it.
