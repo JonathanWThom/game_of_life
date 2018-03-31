@@ -4,6 +4,7 @@ class Gameplay
   def play
     width = get_dimension("width")
     height = get_dimension("height")
+
     if width * height > 999
       puts "Please create a smaller grid\n\n"
       play
@@ -59,7 +60,4 @@ class Gameplay
 
   def nil_value_entered?(living_cell_numbers)
   end
-
 end
-
-Gameplay.new.play
